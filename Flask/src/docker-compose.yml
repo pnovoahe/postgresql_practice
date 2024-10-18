@@ -1,0 +1,33 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./site:/app 
+    environment:
+      FLASK_APP: app.py  
+      FLASK_ENV: development
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: flask_db
+      DATABASE_URL: postgres://admin:admin123@postgres:5432/flask_db
+    depends_on:
+      - postgres
+    command: >
+      sh -c "python init_db.py &&
+             flask run --host=0.0.0.0"
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: flask_db
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:

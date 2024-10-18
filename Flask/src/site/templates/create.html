@@ -1,0 +1,29 @@
+﻿{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="my-4">{% block title %} Add a New Book {% endblock %}</h1>
+
+    <form method="post">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Book title" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="author" class="form-label">Author</label>
+            <input type="text" class="form-control" id="author" name="author" placeholder="Book author" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="pages_num" class="form-label">Number of pages</label>
+            <input type="number" class="form-control" id="pages_num" name="pages_num" placeholder="Number of pages" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="review" class="form-label">Review</label>
+            <textarea class="form-control" id="review" name="review" rows="5" placeholder="Review"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}
