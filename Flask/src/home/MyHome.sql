@@ -27,7 +27,7 @@ DROP DATABASE IF EXISTS myhome;
 CREATE DATABASE myhome WITH TEMPLATE = template0 ENCODING = 'UTF8';
 
 
-ALTER DATABASE myhome OWNER TO postgres;
+-- ALTER DATABASE myhome OWNER TO postgres;
 
 \connect myhome
 
@@ -47,10 +47,10 @@ SET row_security = off;
 -- Name: public; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
-CREATE SCHEMA public;
+-- CREATE SCHEMA public;
 
 
-ALTER SCHEMA public OWNER TO postgres;
+-- ALTER SCHEMA public OWNER TO postgres;
 
 --
 -- TOC entry 2944 (class 0 OID 0)
@@ -76,7 +76,7 @@ CREATE TABLE public.rooms (
 );
 
 
-ALTER TABLE public.rooms OWNER TO postgres;
+-- ALTER TABLE public.rooms OWNER TO postgres;
 
 --
 -- TOC entry 202 (class 1259 OID 19360)
@@ -92,7 +92,7 @@ CREATE SEQUENCE public.rooms_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.rooms_id_seq OWNER TO postgres;
+-- ALTER TABLE public.rooms_id_seq OWNER TO postgres;
 
 --
 -- TOC entry 2945 (class 0 OID 0)
@@ -100,7 +100,7 @@ ALTER TABLE public.rooms_id_seq OWNER TO postgres;
 -- Name: rooms_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.rooms_id_seq OWNED BY public.rooms.id;
+-- ALTER SEQUENCE public.rooms_id_seq OWNED BY public.rooms.id;
 
 
 --
@@ -116,7 +116,7 @@ CREATE TABLE public.temperatures (
 );
 
 
-ALTER TABLE public.temperatures OWNER TO postgres;
+-- ALTER TABLE public.temperatures OWNER TO postgres;
 
 --
 -- TOC entry 204 (class 1259 OID 19387)
@@ -132,7 +132,7 @@ CREATE SEQUENCE public.temperatures_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.temperatures_id_seq OWNER TO postgres;
+-- ALTER TABLE public.temperatures_id_seq OWNER TO postgres;
 
 --
 -- TOC entry 2946 (class 0 OID 0)

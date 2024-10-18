@@ -34,6 +34,10 @@ def index():
             conn.close()
     return render_template('index.html', books=books)
 
+@app.route('/<page_name>.html')
+def static_page(page_name):
+    return render_template(f'{page_name}.html')
+
 @app.route('/create/', methods=('GET', 'POST'))
 def create():
     if request.method == 'POST':

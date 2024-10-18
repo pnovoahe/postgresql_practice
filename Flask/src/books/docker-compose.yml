@@ -4,7 +4,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ./site:/app 
+      - ./flask_app:/app 
     environment:
       FLASK_APP: app.py  
       FLASK_ENV: development
@@ -28,6 +28,3 @@ services:
       - ./postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-
-volumes:
-  postgres_data:

@@ -1,0 +1,34 @@
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+
+    volumes:
+      - ./db_data:/var/lib/postgresql/data # Persistencia de los datos
+      - ./MyHome.sql:/docker-entrypoint-initdb.d/init.sql  # Script de inicialización de la base de datos
+    networks:
+      - home_network
+
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./flask_app:/app 
+    environment:
+      FLASK_APP: app.py  
+      FLASK_ENV: development
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: myhome
+      DATABASE_URL: postgres://admin:admin123@postgres:5432/myhome
+    depends_on:
+      - postgres
+    networks:
+      - home_network
+
+networks:
+  home_network:
+    driver: bridge

@@ -1,0 +1,5 @@
+curl -X GET http://127.0.0.1:5000/get_avg_temp_of_all_rooms | jq .
+
+curl -X GET http://127.0.0.1:5000/get_avg_temp_by_rooms | jq .
+
+curl -X GET http://127.0.0.1:5000/get_max_temp_by_rooms | jq .
